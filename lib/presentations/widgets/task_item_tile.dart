@@ -21,12 +21,21 @@ class TaskItemTile extends StatelessWidget {
         context.router.push(UpdateTaskRoute(taskEntity: task));
       },
       trailing: task.status == TaskStatus.active
-        ? TextButton(onPressed: (){
+        ? TextButton(
+          onPressed: (){
             context.read<TaskTodoBloc>().add(TaskTodoEvent.onComplete(task.id));
-          }, child: Text("Complete"))
-        : IconButton(onPressed: (){
+          },
+          child: Text("Complete"),
+        )
+        : IconButton(
+          onPressed: (){
             context.read<TaskTodoBloc>().add(TaskTodoEvent.onDelete(task.id));
-          }, icon: Icon(CupertinoIcons.trash, color: Colors.red,)),
+          }, 
+          icon: Icon(
+            CupertinoIcons.trash, 
+            color: Colors.red,
+          ),
+        ),
     );
   }
 }

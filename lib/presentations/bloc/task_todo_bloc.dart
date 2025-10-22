@@ -56,6 +56,7 @@ class TaskTodoBloc extends Bloc<TaskTodoEvent, TaskTodoState> {
     await completeTask(id: event.id);
     add(OnGet());
   }
+
   _onFilter(OnFilter event, emit) async {
     final filtered = await getTasks.filter(event.filter);
     emit(state.copyWith(tasks: filtered, filter: event.filter));

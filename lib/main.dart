@@ -20,8 +20,6 @@ Future<void> main() async {
 
 class TaskToDoApp extends StatelessWidget {
   const TaskToDoApp({super.key});
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

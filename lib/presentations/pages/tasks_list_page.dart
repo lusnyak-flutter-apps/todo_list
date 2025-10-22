@@ -24,27 +24,30 @@ class TasksListPage extends StatelessWidget {
       body: SafeArea(child: BlocBuilder<TaskTodoBloc, TaskTodoState>(
           builder: (context, state) {
             if(state.status == TaskTodoStatus.loading) {
-              return Center(child: CircularProgressIndicator(),);
+              return Center(child: CircularProgressIndicator());
             }
 
             if(state.tasks.isEmpty) {
-              return Center(child: Text("No tasks found"),);
+              return Center(child: Text("No tasks found"));
             }
+
             return ListView.separated(
+              padding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 8.0),
               itemCount: state.tasks.length,
               separatorBuilder: (_, __) => Divider(),
               itemBuilder: (_, index) {
                 final task = state.tasks[index];
                 return TaskItemTile(task:task);
-              });
+              },
+            );
           }
         )),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: (){
           context.router.push(AddNewTaskRoute());
-        }),
+        },
+      ),
     );
   }
-
 }

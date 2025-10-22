@@ -14,9 +14,8 @@ class TaskFilterDropDown extends StatelessWidget {
       padding: const EdgeInsets.only(right: 8.0),
       child: DropdownButton<TaskFilter>(
         value: currentFilter,
-        icon: const Icon(Icons.filter_list),
-        underline: const SizedBox(),
-        dropdownColor: Colors.white,
+        icon: const Icon(Icons.filter_list_rounded),
+        underline: const SizedBox.shrink(),
         items: const [
           DropdownMenuItem(
             value: TaskFilter.all,
